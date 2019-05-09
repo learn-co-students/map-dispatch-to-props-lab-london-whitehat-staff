@@ -17,9 +17,9 @@ configure({ adapter: new Adapter() })
 describe('redux', () => {
   it('updates the store on successful dispatch', () => {
     let store = createStore(manageRestaurants);
-
-    store.dispatch(addRestaurant({name: 'Blooming Hill', location: 'Blooming Grove, NY'}))
-    expect(store.getState().restaurants.length).to.equal(1)
+    store.dispatch(addRestaurant({name: 'Blooming Hill', location: 'Blooming Grove, NY'}));
+    console.log(store.getState());
+    expect(store.getState().restaurants.length).to.equal(1);
     expect(store.getState().restaurants[0].name).to.equal('Blooming Hill')
     expect(store.getState().restaurants[0].location).to.equal('Blooming Grove, NY')
 
@@ -52,7 +52,7 @@ describe('restaurants input', () => {
         <App />
       </Provider>
     );
-    
+
     expect(store.getState().restaurants.length).to.equal(0)
     let WrapperRestaurantInput = wrapper.find(RestaurantInput).first();
     let restaurantNameInput = wrapper.find('input').first();
