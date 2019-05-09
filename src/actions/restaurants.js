@@ -1,6 +1,6 @@
-export const addRestaurant = (restaurant) => {
+export const addRestaurant = ({name, location}) => {
   return {
     type: 'ADD_RESTAURANT',
-    restaurant
+    restaurant: { name: name, location: location }
   };
 };
